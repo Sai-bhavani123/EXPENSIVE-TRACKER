@@ -1,0 +1,645 @@
+
+
+/* Professional Expense Tracker Styles - Responsive Design */
+:root {
+  --primary-color: #00b894;
+  --secondary-color: #ff7675;
+  --accent-color: #0984e3;
+  --background-color: #f7f9fc;
+  --card-background: #ffffff;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --success-color: #55efc4;
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  /* background-image: url('https://media.istockphoto.com/id/1342226806/photo/mobile-phone-app-for-money-budget-and-expense-tracking.jpg?s=612x612&w=0&k=20&c=FFp9jyIJotg1pgMQnSlcQWz5XO6CpkLnR6VvKrYTcnQ='); */
+  background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*fdgtVz4pdi0jZAjJTY1fkw.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  /* This keeps the background still */
+  height: 100vh;
+  width: 100%;
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding: 10px;
+}
+
+.container {
+  /* opacity: 1; */
+  max-width: 800px;
+  margin: 20px auto;
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Auth Section Styling */
+#auth-section {
+  max-width: 400px;
+  width: 90%;
+}
+
+#auth-title {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border: 1px solid #e1e4e8;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+button {
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  padding: 14px;
+  margin-top: 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+button:hover {
+  background: #00a382;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+}
+
+button i {
+  font-size: 18px;
+}
+
+#toggle-auth {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+#switch-mode {
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#switch-mode:hover {
+  text-decoration: underline;
+  background-color:var(--border-radius);
+  color:red;
+}
+
+/* Dashboard Styling */
+.logout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logout-container h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.logout-container button {
+  width: auto;
+  background-color: var(--secondary-color);
+  padding: 8px 20px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.logout-container button:hover {
+  background-color: #ff6b6b;
+}
+
+/* Dashboard Cards and Summaries */
+.dashboard-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.summary-card {
+  flex: 1 1 140px;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.summary-card h4 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.summary-card .amount {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.summary-card.income .amount {
+  color: var(--primary-color);
+}
+
+.summary-card.expense .amount {
+  color: var(--secondary-color);
+}
+
+/* Circular Progress Chart */
+.chart-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.circular-chart {
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eeeeee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+.circular-chart .safe-circle {
+  stroke: var(--primary-color);
+}
+
+.circular-chart .expense-circle {
+  stroke: var(--secondary-color);
+}
+
+.percentage {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
+.percentage .amount {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.percentage .label {
+  font-size: 0.5em;
+  fill: var(--text-secondary);
+}
+
+/* Expense Form Styling */
+.add-expense-form {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 25px;
+}
+
+.add-expense-form h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-expense-form h3 i {
+  color: var(--primary-color);
+}
+
+.add-expense-form button {
+  background-color: var(--primary-color);
+}
+
+/* Filter and Transaction List */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-container h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+#monthPicker {
+  width: 150px;
+}
+
+ul#expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+li.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  margin-bottom: 10px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+}
+
+li.expense-item:hover {
+  transform: translateX(3px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+li.expense-item .details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 140px;
+}
+
+li.expense-item .desc {
+  font-weight: 500;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+li.expense-item .date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+li.expense-item .right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+/* Action buttons for expense items */
+.expense-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+li.expense-item .category {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Category colors */
+li.expense-item .category.Food {
+  background: rgba(255, 118, 117, 0.1);
+  color: #ff7675;
+}
+
+li.expense-item .category.Travel {
+  background: rgba(9, 132, 227, 0.1);
+  color: #0984e3;
+}
+
+li.expense-item .category.Health {
+  background: rgba(0, 184, 148, 0.1);
+  color: #00b894;
+}
+
+li.expense-item .category.Shopping {
+  background: rgba(253, 121, 168, 0.1);
+  color: #fd79a8;
+}
+
+li.expense-item .category.Bills {
+  background: rgba(162, 155, 254, 0.1);
+  color: #a29bfe;
+}
+
+li.expense-item .category.Entertainment {
+  background: rgba(255, 159, 67, 0.1);
+  color: #ff9f43;
+}
+
+li.expense-item .category.Other {
+  background: rgba(116, 125, 140, 0.1);
+  color: #747d8c;
+}
+
+/* Edit and Delete Buttons */
+.btn-action {
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.btn-edit {
+  background-color: rgba(9, 132, 227, 0.1);
+  color: var(--accent-color);
+}
+
+.btn-delete {
+  background-color: rgba(255, 118, 117, 0.1);
+  color: var(--secondary-color);
+}
+
+.btn-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Landing Page Styling */
+#landing-section {
+  height: 100vh; /* Take full visible height */
+  background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*fdgtVz4pdi0jZAjJTY1fkw.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  /* This keeps the background still */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 0 20px; /* horizontal padding only */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent accidental scroll */
+}
+
+
+
+.landing-box {
+  text-align: center;
+  background: var(--card-background);
+  background-attachment: fixed;
+  padding: 30px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  width: 90%;
+  margin: 27% auto;
+}
+
+.landing-box h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.landing-box p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+}
+
+#get-started-btn {
+  background: var(--primary-color);
+  color: white;
+
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  width: auto;
+  min-width: 140px;
+}
+
+#get-started-btn:hover {
+  background: #00a382;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones) */
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 15px;
+    margin: 10px auto;
+    background-color: var(--card-background);
+  }
+  
+  button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    padding: 9px;
+    margin-top: 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .landing-box {
+    padding: 20px 15px;
+    /* margin-top: 10px; */
+    margin: none;
+  }
+  
+  .landing-box h1 {
+    font-size: 20px;
+  }
+  
+  .logout-container {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .logout-container h2 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .summary-card {
+    flex: 1 1 100%;
+  }
+  
+  .circular-chart {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #monthPicker {
+    width: 100%;
+  }
+  
+  li.expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  li.expense-item .right-content {
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .expense-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+  
+  .btn-action {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+}
+
+
+
+
+
+
+/* Medium devices (tablets) */
+/* Medium devices (tablets) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .container {
+    padding: 20px;
+    /* background-color: black; */
+  }
+  
+  .summary-card {
+    flex: 1 1 45%;
+  }
+  
+  .circular-chart {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Large devices (desktops) */
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 30px;
+    /* background-color: black; */
+  }
+  
+  .summary-card {
+    flex: 1;
+  }
+
+  button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    margin-top: 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+}
+
+/* Animation for chart */
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
